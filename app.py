@@ -6,12 +6,12 @@ from sklearn.naive_bayes import MultinomialNB
 
 loaded_model = pickle.load(open("finalized_model.sav",'rb'))
 
-this_app = Flask(__name__)
-@this_app.route("/")
+app = Flask(__name__)
+@app.route("/")
 def form():
 	return render_template('home11.html')
 
-@this_app.route('/',methods=['POST'])
+@app.route('/',methods=['POST'])
 def predict():
 	if request.method == 'POST':
 		message = request.form['msg']
@@ -21,7 +21,7 @@ def predict():
 	return render_template('result11.html', res = prediction)
 
 if __name__ == "__main__":
-	this_app.run(debug = True)
+	app.run(debug = True)
 
 
 
