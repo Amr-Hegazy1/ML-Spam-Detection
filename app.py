@@ -18,7 +18,7 @@ def predict():
 		data = [message]
 		prediction=loaded_model.predict(data)[0]
 			
-	return render_template('result11.html', res = prediction)
+	return render_template('result11.html', res = prediction, msg = message)
 
 if __name__ == "__main__":
 	app.run(debug = True)
